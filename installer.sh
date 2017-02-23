@@ -1,7 +1,7 @@
 #!/bin/bash
-
-cd resources/libesedb-20160622/
-chmod +x configure
+CWD="$(pwd)"
+tar xf $CWD resources/libesedb-20160622.tar.tar.gz -C $CWD resources/libesedb-20160622
+cd $CWD resources
 ./configure
 make
 cd resources/ntdsxtract2/
