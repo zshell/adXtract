@@ -23,9 +23,9 @@ echo "This could take a while... time for coffee!"
 
 ./esedbexport -t /root/Desktop/adXtract/$3 $1 > /root/Desktop/adXtract/exported
 
-cd ../../../
+cd ../../
 
-cd $CDW resources/ntdsxtract/
+cd $CDW ntdsxtract/
 
 ./dsusers.py /root/Desktop/adXtract/$3.export/datatable.3 /root/Desktop/adXtract/$3.export/link_table.5 /root/Desktop/adXtract/Maps/ --passwordhashes --pwdformat ophc --syshive $2 --lmoutfile /root/Desktop/adXtract/allLMhashes.txt --ntoutfile /root/Desktop/adXtract/allNTLMhashes.txt
 
