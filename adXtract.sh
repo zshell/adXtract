@@ -19,6 +19,6 @@ cd ../../
 echo "the working dir is " $CWD
 cd $CWD 
 cd resources/ntdsxtract2/
-./dsusers.py /root/Desktop/adXtract.$3/$3.export/datatable.3 /root/Desktop/adXtract.$3/$3.export/link_table.5 /root/Desktop/adXtract/Maps/ --passwordhashes --pwdformat ophc --syshive $2 --lmoutfile /root/Desktop/adXtract.$3/$3.allLMhashes.txt --ntoutfile /root/Desktop/adXtract.$3/$3.allNTLMhashes.txt
+./dsusers.py /root/Desktop/adXtract.$3/$3.export/datatable.* /root/Desktop/adXtract.$3/$3.export/link_table.* /root/Desktop/adXtract/Maps/ --passwordhashes --pwdformat ophc --syshive $2 --lmoutfile /root/Desktop/adXtract.$3/$3.allLMhashes.txt --ntoutfile /root/Desktop/adXtract.$3/$3.allNTLMhashes.txt
 cat /root/Desktop/adXtract.$3/$3.allNTLMhashes.txt
 echo "Check /root/Desktop/adXtract."$3"/"$3"allLMhashes.txt"
