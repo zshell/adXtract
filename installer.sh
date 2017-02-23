@@ -1,10 +1,12 @@
 #!/bin/bash
 CWD="$(pwd)"
-tar xf $CWD resources/libesedb-20160622.tar.tar.gz -C $CWD resources/libesedb-20160622
-cd $CWD resources
+cd resources/
+tar xf libesedb-20160622.tar.gz
+cd libesedb-20160622
 ./configure
 make
-cd resources/ntdsxtract2/
+../
+cd ntdsxtract2/
 chmod +x *.py
 
 echo "Configuration has completed"
