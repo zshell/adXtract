@@ -101,6 +101,6 @@ rm -rf %{buildroot}
 %{_libdir}/python3*/site-packages/*.so
 
 %changelog
-* Tue Feb  7 2017 Joachim Metz <joachim.metz@gmail.com> 20160622-1
+* Thu Feb 23 2017 Joachim Metz <joachim.metz@gmail.com> 20160622-1
 - Auto-generated
 

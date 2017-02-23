@@ -12,10 +12,12 @@ if [ -z $2 ]; then
 
 fi
 
+CWD="$(pwd)"
+echo "the working dir is " $CWD
 mkdir '/root/Desktop/adXtract'
 mkdir '/root/Desktop/adXtract/Maps'
 
-cd /root/Desktop/lib/libesedb-20160622/esedbtools
+cd $CDW resources/libesedb-20160622/esedbtools
 
 echo "This could take a while... time for coffee!"
 
@@ -23,7 +25,7 @@ echo "This could take a while... time for coffee!"
 
 cd ../../
 
-cd adXtract/resources/ntdsxtract/
+cd $CDW resources/ntdsxtract/
 
 ./dsusers.py /root/Desktop/adXtract/$3.export/datatable.3 /root/Desktop/adXtract/$3.export/link_table.5 /root/Desktop/adXtract/Maps/ --passwordhashes --pwdformat ophc --syshive $2 --lmoutfile /root/Desktop/adXtract/allLMhashes.txt --ntoutfile /root/Desktop/adXtract/allNTLMhashes.txt
 
