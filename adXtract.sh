@@ -23,7 +23,7 @@ echo "This could take a while... time for coffee!"
 
 ./esedbexport -t /root/Desktop/adXtract/$3 $1 > /root/Desktop/adXtract/exported
 
-cd ../../
+cd ../../../
 
 cd $CDW resources/ntdsxtract/
 
