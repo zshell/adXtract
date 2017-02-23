@@ -10,6 +10,6 @@ cd ntdsxtract2/
 chmod +x *.py
 
 echo "Configuration has completed"
-echo "run adXtract.sh /pathto/ntds.dit /pathto/SYSTEM /ProjectName
+echo "run adXtract.sh /pathto/ntds.dit /pathto/SYSTEM /ProjectName"
 
 
