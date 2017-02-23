@@ -14,7 +14,7 @@ fi
 
 CWD="$(pwd)"
 echo "the working dir is " $CWD
-mkdir '/root/Desktop/adXtract'
+mkdir '/root/Desktop/adXtract'.$3
 mkdir '/root/Desktop/adXtract/Maps'
 
 cd $CDW resources/libesedb-20160622/esedbtools
