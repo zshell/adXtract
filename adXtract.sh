@@ -3,17 +3,17 @@ printf "\33c"
 
 if [ -z $2 ]; then
 
-        echo "usage: $0  ntds.dit SYSTEM";
+        echo 'usage: $0  ntds.dit SYSTEM';
 
         exit 1;
 
 fi
-CWD="$(pwd)"
-echo "the working dir is " $CWD
+CWD='$(pwd)'
+echo 'the working dir is ' $CWD
 mkdir '/root/Desktop/adXtract'.$3
 mkdir '/root/Desktop/adXtract'.$3'/Maps'
 cd $CDW resources/libesedb-20160622/esedbtools
-echo "This could take a while... time for coffee!"
+echo 'This could take a while... time for coffee!'
 ./esedbexport -t /root/Desktop/adXtract.$3/$3 $1 > /root/Desktop/adXtract.$3/exported
 cd ../../
 cd $CWD 
