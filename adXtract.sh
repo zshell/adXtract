@@ -8,7 +8,7 @@ if [ -z $2 ]; then
         exit 1;
 
 fi
-CWD='$(pwd)'
+CWD="$(pwd)"
 echo 'the working dir is ' $CWD
 mkdir '/root/Desktop/adXtract'.$3
 mkdir '/root/Desktop/adXtract'.$3'/Maps'
