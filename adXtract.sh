@@ -3,7 +3,7 @@ printf "\33c"
 
 if [ -z $2 ]; then
 
-        echo 'usage: $0  ntds.dit SYSTEM';
+        echo 'usage: /location of/ntds.dit /location of/SYSTEM';
 
         exit 1;
 
