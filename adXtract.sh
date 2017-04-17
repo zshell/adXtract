@@ -19,7 +19,6 @@ cd ../../
 cd $CWD 
 echo $CWD
 cd resources/ntdsxtract2/
-./dsusers.py $CWD/adXtract_$3/$3.export/datatable.* $CWD/adXtract_$3/$3.export/link_table.* $CWD/adXtract_$3/Maps/ --passwordhashes --pwdformat ophc --syshive $2 --lmoutfile $CWD/adXtract_$3/$3_allLMhashes.txt --ntoutfile $CWD/adXtract_$3/$3_allNTLMhashes.txt
-./dsusers.py $CWD/adXtract_$3/$3.export/datatable.* $CWD/adXtract_$3/$3.export/link_table.* $CWD/adXtract_$3/Maps/ --csvoutfile $CWD/adXtract_$3/$3_UserAccountOut.csv
+./dsusers.py $CWD/adXtract_$3/$3.export/datatable.* $CWD/adXtract_$3/$3.export/link_table.* $CWD/adXtract_$3/Maps/ --passwordhashes --pwdformat ophc --syshive $2 --lmoutfile $CWD/adXtract_$3/$3_allLMhashes.txt --ntoutfile $CWD/adXtract_$3/$3_allNTLMhashes.txt --csvoutfile $CWD/adXtract_$3/$3_UserAccountOut.csv
 cat $CWD/adXtract_$3/$3_allNTLMhashes.txt
 echo "$CWD/adXtract."$3"/"$3"allLMhashes.txt"
