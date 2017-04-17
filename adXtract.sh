@@ -1,9 +1,9 @@
 #!/bin/bash
 printf "\33c"
 
-if [ -z $2 ]; then
+if [ -z $3 ]; then
 
-        echo 'usage: /location of/ntds.dit /location of/SYSTEM';
+        echo 'usage: /location of/ntds.dit /location of/SYSTEM ProjectName';
 
         exit 1;
 
