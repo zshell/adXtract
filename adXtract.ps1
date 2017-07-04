@@ -52,7 +52,7 @@ mv ntds.dit.export $DBPath
 
 #Extracting User hashes and historic hashes into Hashcat format:
 Write-host "Extracting ntds, this can take a while" -fo red
-cmd /c "$python\python.exe" "$cwd\resources\ntdsxtract2\dsusers_colour.py" "$DBPath\ntds.dit.export\datatable.3" "$DBPath\ntds.dit.export\link_table.5" "$DBpath\ntds.dit.export" --passwordhashes --pwdformat ophc --syshive "$DBpath\SYSTEM" --passwordhistory --ntoutfile "$DBPath\hashes-humanreadable.hash"
+cmd /c "$python\python.exe" "$cwd\resources\ntdsxtract2\dsusers.py" "$DBPath\ntds.dit.export\datatable.3" "$DBPath\ntds.dit.export\link_table.5" "$DBpath\ntds.dit.export" --passwordhashes --pwdformat ophc --syshive "$DBpath\SYSTEM" --passwordhistory --ntoutfile "$DBPath\hashes-humanreadable.hash"
 
 #Crackng passwords using hashcat: 
 cmd /c "$HCPath\hashcat64.exe" -m 1000 "$DBPath\hashes-humanreadable.hash" "$words\*.txt" -w3 --rules "$rules\1_top_500.rule"
