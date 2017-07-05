@@ -44,17 +44,34 @@ $DBpath = Read-Host "Enter path to the ntds.dit and SYSTEM files"
 #Extracting the table information:
 Write-host "Extracting table information" -fo Yellow
 Write-Host @"
-############################
+##############################
+#For Status check the size of#
+# the DataTable file within  #
+#   /"ntds.dit.export/ "     #
+#    Approx speed 300kb/s    # 
+#############################
 "@ -fo green
 
 cmd /c "$Esedb\esedbexport.exe" "$DBPath\ntds.dit"
-mv ntds.dit.export $DBPath
+
+
 
 #Extracting User hashes and historic hashes into Hashcat format:
-Write-host "Extracting ntds, this can take a while" -fo red
-cmd /c "$python\python.exe" "$cwd\resources\ntdsxtract2\dsusers.py" "$DBPath\ntds.dit.export\datatable.3" "$DBPath\ntds.dit.export\link_table.5" "$DBpath\ntds.dit.export" --passwordhashes --pwdformat ophc --syshive "$DBpath\SYSTEM" --passwordhistory --ntoutfile "$DBPath\hashes-humanreadable.hash"
+Write-host "Moving Files to Target Folder" -fo Yellow
+Write-Host "##########################################" -fo green
+mv ntds.dit.export $DBPath
 
+$datat = Get-ChildItem -Path $DBpath\ntds.dit.export -Name | Select-String -Pattern datatable
+$linkt = Get-ChildItem -Path $DBpath\ntds.dit.export -Name | Select-String -Pattern link_table
+
+Write-host "# Extracting ntds, this can take a while #" -fo red
+Write-Host "##########################################" -fo green
+cmd /c "$python\python.exe" "$cwd\resources\ntdsxtract2\dsusers.py" "$DBPath\ntds.dit.export\$datat" "$DBPath\ntds.dit.export\$linkt" "$DBpath\ntds.dit.export" --passwordhashes --pwdformat ophc --syshive "$DBpath\SYSTEM" --passwordhistory --ntoutfile "$DBPath\hashes-humanreadable.hash"
+
+Write-host "#########################"
+Write-host "# Cracking Using Hashcat#" -fo Yellow
+Write-host "#########################"-fo green
 #Crackng passwords using hashcat: 
-cmd /c "$HCPath\hashcat64.exe" -m 1000 "$DBPath\hashes-humanreadable.hash" "$words\*.txt" -w3 --rules "$rules\1_top_500.rule"
+#cmd /c "$HCPath\hashcat64.exe" -m 1000 "$DBPath\hashes-humanreadable.hash" "$words\*.txt" -w3 --rules "$rules\1_top_500.rule"
 
 pause 
